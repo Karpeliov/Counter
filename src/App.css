@@ -1,0 +1,83 @@
+.App {
+  /*margin-top: 150px;*/
+  /*margin-left: 750px;*/
+  text-align: center;
+
+  /*border: 2px solid #61dafb;*/
+  /*width: 500px;*/
+  /*height: 500px;*/
+}
+
+
+
+.App-main {
+
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Container {
+  width: 400px;
+  height: 220px;
+  border: 2px solid #038a8a;
+  border-radius: 5px;
+}
+
+.Display {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 300px;
+  height: 100px;
+  border: 2px solid #038a8a;
+  border-radius: 5px;
+  background-color: #038a8a;
+  font-size: 75px;
+  font-weight: bold;
+
+}
+
+.red {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 300px;
+  height: 100px;
+  border: 2px solid #038a8a;
+  border-radius: 5px;
+  color: red;
+  background-color: #038a8a;
+  font-size: 75px;
+  font-weight: bold;
+}
+
+.ButtonsContainer {
+  margin-top: 20px;
+  margin-left:  auto;
+  margin-right: auto;
+  width: 300px;
+  height: 50px;
+  border: 2px solid #038a8a;
+  border-radius: 5px;
+
+
+}
+
+.Button1 {
+
+  margin: 10px;
+  background-color: #038a8a;
+  border-radius: 3px;
+  width: 130px;
+  height: 30px;
+}
+
+
