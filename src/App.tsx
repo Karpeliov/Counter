@@ -1,18 +1,28 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Display} from "./Components/Display";
-import {Button1} from "./Components/Button1";
-import {ResetButton} from './Components/ResetButton';
+import {Button} from "./Components/Button";
+import {Settings} from './Components/Settings';
+import {restoreState} from "./LocalStorage/LocalStorage";
 
 
 function App() {
-    let disabled1 = false
+    let disabled = false
     let disabledReset = true
-    // let red = false
-    let maxValue = 5
 
-    let [number, setNumber] = useState<number>(0)
+    let [maxValue, setMaxValue] = useState<number>(6)
+    let [startValue, setStartValue] = useState<number>(0)
+    let [number, setNumber] = useState<number>(startValue)
+    let [error, setError] = useState<boolean>(false)
+    let [isSetting, setIsSetting] = useState<boolean>(false)
+
+
+
+    function set(max: number, start: number) {
+        setMaxValue(max)
+        setStartValue(start)
+        setNumber(start)
+    }
 
     function increment() {
         if (number < maxValue) {
@@ -20,26 +30,34 @@ function App() {
         }
     }
 
-    (number === maxValue) && (disabled1 = true);
+    (number === maxValue) && (disabled = true);
     (number > 0) && (disabledReset = false)
 
     function reset() {
-        return setNumber(0)
+        return setNumber(startValue)
     }
-
 
     return (
         <div className="App">
             <div className={"App-main"}>
-                <div className={"Container"}>
-                    <Display maxValue={maxValue} number={number} />
-                    <div className={"ButtonsContainer"}>
-                        <Button1 onClick={increment} disabled1={disabled1} buttonName={"inc"}/>
-                        <Button1 onClick={reset} disabled1={disabledReset} buttonName={"reset"}/>
-                        {/*<ResetButton reset={reset} disabledReset={disabledReset}/>*/}
+                <span className={"Container"}>
+                    <div className={"settings_inputs"}>
+                    <Settings set={set}
+                              setValue={setMaxValue}
+                              setError={setError} error={error}
+                              setIsSetting={setIsSetting}/>
                     </div>
-                </div>
+                </span>
+
+                <span className={"Container"}>
+                    <Display maxValue={maxValue} number={number} error={error} isSetting={isSetting}/>
+                    <div className={"ButtonsContainer"}>
+                        <Button onClick={increment} disabled={disabled} buttonName={"inc"}/>
+                        <Button onClick={reset} disabled={disabledReset} buttonName={"reset"}/>
+                    </div>
+                </span>
             </div>
+
 
 
         </div>
