@@ -10,7 +10,7 @@ function App() {
     let disabled = false
     let disabledReset = true
 
-    let [maxValue, setMaxValue] = useState<number>(6)
+    let [maxValue, setMaxValue] = useState<number>(5)
     let [startValue, setStartValue] = useState<number>(0)
     let [number, setNumber] = useState<number>(startValue)
     let [error, setError] = useState<boolean>(false)

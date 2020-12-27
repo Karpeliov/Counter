@@ -28,26 +28,15 @@ export function Settings(props: SettingsPropsType) {
         setRestoredStart(true);
     };
 
-    // const restoreMaxValue = () => {
-    //     let savedValue = restoreState<number>("Max-Value", maxValue)
-    //     setStartValue(savedValue);
-    // };
+    const restoreMaxValue = () => {
+        let savedValue = restoreState<number>("Max-Value", maxValue)
+        setMaxValue(savedValue);
+        setRestoredMax(true);
+    };
 
-    !restoredStart &&
-    restoreStartValue()
+    !restoredStart && restoreStartValue()
 
-    // !restoredMax &&
-    // restoreMaxValue()
-
-    // const saveMaxValue = () => {
-    //     saveState<number>("Max-Value", maxValue);
-    // };
-    // const restoreMaxValue = () => {
-    //     let savedValue = restoreState<number>("Max-Value", maxValue)
-    //
-    //     setStartValue(savedValue);
-    // };
-
+    !restoredMax && restoreMaxValue()
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let numberValue = parseInt(e.target.value)
